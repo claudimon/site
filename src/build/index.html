@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build - Claudimon</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <span>Claudimon Project</span>
+    <span><a href="index.html">Download</a> | <a href="../commands/index.html">Documentation</a> | <a href="../about/index.html">About</a></span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-block">
+      <a href="../index.html">
+        <div class="logo-icon" aria-hidden="true">C</div>
+        <div class="logo-text">
+          <h1>Claudimon</h1>
+          <div class="tagline">An experimental operating system kernel</div>
+        </div>
+      </a>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about/index.html">About</a></li>
+        <li><a href="../features/index.html">Features</a></li>
+        <li><a href="../commands/index.html">Commands</a></li>
+        <li><a href="index.html" class="current">Build</a></li>
+        <li><a href="../changelog/index.html">Changelog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="../index.html">Home</a><span class="sep">&raquo;</span><span class="current">Build</span>
+</div>
+
+<div class="page">
+
+  <div class="main-col">
+
+    <div class="panel">
+      <div class="panel-head">Building Claudimon</div>
+      <div class="panel-body">
+        <p style="margin-bottom: 8px; color:#555;">
+          You will need an assembler, a freestanding C compiler, GRUB's rescue tool, and an
+          x86 emulator. No real hardware is required.
+        </p>
+
+        <div class="os-tabs" role="tablist" aria-label="Choose your Linux distribution">
+          <button class="os-tab active" role="tab" aria-selected="true" data-target="deb">Debian / Ubuntu</button>
+          <button class="os-tab" role="tab" aria-selected="false" data-target="fed">Fedora</button>
+          <button class="os-tab" role="tab" aria-selected="false" data-target="arch">Arch Linux</button>
+        </div>
+        <div class="os-panel active" id="deb">
+          <pre class="shell-block"><span class="prompt">$</span> sudo apt install nasm gcc grub-pc-bin grub-common xorriso qemu-system-x86</pre>
+        </div>
+        <div class="os-panel" id="fed">
+          <pre class="shell-block"><span class="prompt">$</span> sudo dnf install nasm gcc grub2-tools xorriso qemu-system-x86
+<span class="comment"># Fedora ships the rescue tool as grub2-mkrescue,</span>
+<span class="comment"># the Makefile already accounts for this.</span></pre>
+        </div>
+        <div class="os-panel" id="arch">
+          <pre class="shell-block"><span class="prompt">$</span> sudo pacman -S nasm gcc binutils grub xorriso qemu</pre>
+        </div>
+
+        <h3 class="section-title" style="margin-top:18px;">Build steps</h3>
+        <table class="info-table">
+          <tr>
+            <td class="label">1. Get the source</td>
+            <td>The kernel source lives under <code>mykernel/</code>: boot code, kernel sources, headers, and the GRUB config.</td>
+          </tr>
+          <tr>
+            <td class="label">2. Build it</td>
+            <td>
+              Assembles the boot stub, compiles every kernel source, links it into a flat
+              binary, wraps it in a bootable ISO with GRUB, and creates a 16MB virtual hard
+              disk for the filesystem.
+              <pre class="shell-block"><span class="prompt">$</span> cd mykernel
+<span class="prompt">$</span> make</pre>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">3. Run it</td>
+            <td>
+              Launches QEMU with the ISO as the boot disc and the virtual disk attached.
+              <pre class="shell-block"><span class="prompt">$</span> make run</pre>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">4. Reset if needed</td>
+            <td><code>make clean</code> wipes build artifacts. <code>make clean-disk</code> wipes saved files too, useful if the filesystem ever gets into a bad state.</td>
+          </tr>
+        </table>
+
+        <div class="notice-box">
+          <strong>This is a learning kernel, not a daily driver.</strong> Claudimon has no
+          memory protection, no partition awareness, and a single hand rolled filesystem
+          with no journaling. Run it in QEMU, or on a spare machine you do not mind wiping,
+          never on a computer with files you care about.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sidebar-col">
+
+    <div class="panel sidebar">
+      <div class="panel-head">Project Info</div>
+      <div class="panel-body">
+        <div class="stat-row"><span class="stat-label">Latest version</span><span class="stat-val">0.4.0</span></div>
+        <div class="stat-row"><span class="stat-label">Architecture</span><span class="stat-val">x86 (32-bit)</span></div>
+        <div class="stat-row"><span class="stat-label">Bootloader</span><span class="stat-val">GRUB / Multiboot2</span></div>
+        <div class="stat-row"><span class="stat-label">License</span><span class="stat-val">See LICENSE</span></div>
+        <div class="stat-row"><span class="stat-label">Written in</span><span class="stat-val">C and Assembly</span></div>
+        <div class="badge-row">
+          <span class="badge">x86</span>
+          <span class="badge">bare-metal</span>
+          <span class="badge">QEMU</span>
+          <span class="badge">AI-built</span>
+          <span class="badge">hobby-os</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel sidebar">
+      <div class="panel-head">Quick Links</div>
+      <div class="panel-body">
+        <ul class="link-list">
+          <li><a href="../about/index.html"><span class="bullet">&raquo;</span>About this project</a></li>
+          <li><a href="../features/index.html"><span class="bullet">&raquo;</span>Feature list</a></li>
+          <li><a href="../commands/index.html"><span class="bullet">&raquo;</span>Command reference</a></li>
+          <li><a href="index.html" class="current"><span class="bullet">&raquo;</span>Build instructions</a></li>
+          <li><a href="../changelog/index.html"><span class="bullet">&raquo;</span>Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="page" style="margin-top: -8px;">
+  <div class="main-col">
+    <div class="page-nav">
+      <a href="../commands/index.html">&laquo; Previous: Commands</a>
+      <a class="next" href="../changelog/index.html">Next: Changelog &raquo;</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>Claudimon, an experimental kernel project.</span>
+    <span><a href="index.html">Build instructions</a> &middot; <a href="../commands/index.html">Command reference</a> &middot; <a href="../changelog/index.html">Changelog</a></span>
+  </div>
+</footer>
+
+<script>
+  var tabs = document.querySelectorAll('.os-tab');
+  var panels = document.querySelectorAll('.os-panel');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      panels.forEach(function(p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      document.getElementById(tab.dataset.target).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
