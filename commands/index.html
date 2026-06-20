@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commands - Claudimon</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <span>Claudimon Project</span>
+    <span><a href="/build">Download</a> | <a href="/commands">Documentation</a> | <a href="/about">About</a></span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-block">
+      <a href="/">
+        <div class="logo-icon" aria-hidden="true">C</div>
+        <div class="logo-text">
+          <h1>Claudimon</h1>
+          <div class="tagline">An experimental operating system kernel</div>
+        </div>
+      </a>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/commands" class="current">Commands</a></li>
+        <li><a href="/build">Build</a></li>
+        <li><a href="/changelog">Changelog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">&raquo;</span><span class="current">Commands</span>
+</div>
+
+<div class="page">
+
+  <div class="main-col">
+
+    <div class="panel">
+      <div class="panel-head">Command Reference</div>
+      <div class="panel-body">
+        <p style="margin-bottom: 10px; color:#555;">Every command currently understood by the Claudimon shell, grouped by category.</p>
+
+        <div class="cmd-category">System</div>
+        <table class="cmd-table">
+          <tr><th>Command</th><th>Description</th></tr>
+          <tr><td><code>help</code></td><td>List every available command</td></tr>
+          <tr><td><code>clear</code></td><td>Clear the screen</td></tr>
+          <tr><td><code>logo</code></td><td>Show the Claudimon boot logo</td></tr>
+          <tr><td><code>info</code></td><td>Kernel, bootloader, and driver summary</td></tr>
+          <tr><td><code>mem</code></td><td>Total RAM and key memory addresses</td></tr>
+          <tr><td><code>cpu</code></td><td>CPU vendor string, read via <code>cpuid</code></td></tr>
+          <tr><td><code>version</code></td><td>Current kernel version</td></tr>
+          <tr><td><code>shutdown</code></td><td>Power off the machine (alias: <code>close</code>)</td></tr>
+          <tr><td><code>reboot</code></td><td>Restart back into GRUB</td></tr>
+        </table>
+
+        <div class="cmd-category">Filesystem</div>
+        <table class="cmd-table">
+          <tr><th>Command</th><th>Description</th></tr>
+          <tr><td><code>ls</code></td><td>List the current directory</td></tr>
+          <tr><td><code>cd <span class="arg-code">&lt;name&gt;</span></code></td><td>Change directory, <code>cd ..</code> goes up</td></tr>
+          <tr><td><code>pwd</code></td><td>Print the current path</td></tr>
+          <tr><td><code>mkdir <span class="arg-code">&lt;name&gt;</span></code></td><td>Create a directory</td></tr>
+          <tr><td><code>touch <span class="arg-code">&lt;file&gt; &lt;text&gt;</span></code></td><td>Create a file with content</td></tr>
+          <tr><td><code>cat <span class="arg-code">&lt;file&gt;</span></code></td><td>Print a file's contents</td></tr>
+          <tr><td><code>edit <span class="arg-code">&lt;file&gt;</span></code></td><td>Open the full screen text editor</td></tr>
+        </table>
+
+        <div class="cmd-category">Input and appearance</div>
+        <table class="cmd-table">
+          <tr><th>Command</th><th>Description</th></tr>
+          <tr><td><code>keyboard</code></td><td>List available keyboard layouts</td></tr>
+          <tr><td><code>keyboard <span class="arg-code">&lt;n&gt;</span></code></td><td>Switch layout (0 through 6)</td></tr>
+          <tr><td><code>theme</code></td><td>List colour themes</td></tr>
+          <tr><td><code>theme <span class="arg-code">&lt;n&gt;</span></code></td><td>Apply a theme (0 through 4)</td></tr>
+          <tr><td><code>color</code></td><td>Show the full 16 colour VGA palette</td></tr>
+        </table>
+
+        <div class="cmd-category">Sound and misc</div>
+        <table class="cmd-table">
+          <tr><th>Command</th><th>Description</th></tr>
+          <tr><td><code>beep</code></td><td>A short, single beep</td></tr>
+          <tr><td><code>play <span class="arg-code">&lt;hz&gt;</span></code></td><td>Play a tone at a given frequency</td></tr>
+          <tr><td><code>jingle</code></td><td>Play the boot jingle</td></tr>
+          <tr><td><code>calc <span class="arg-code">&lt;a&gt; &lt;op&gt; &lt;b&gt;</span></code></td><td>Basic arithmetic: <code>+ - * /</code></td></tr>
+          <tr><td><code>echo <span class="arg-code">&lt;text&gt;</span></code></td><td>Print text back to the screen</td></tr>
+          <tr><td><code>history</code></td><td>Show your last 10 commands</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">Editor shortcuts</div>
+      <div class="panel-body">
+        <p style="color:#333; margin-bottom: 10px;">Once inside <code>edit &lt;file&gt;</code>, type normally to insert text. A few keys are reserved:</p>
+        <table class="info-table">
+          <tr><td class="label">Backspace</td><td>Delete the character before the cursor</td></tr>
+          <tr><td class="label">Ctrl+S</td><td>Save the file to disk</td></tr>
+          <tr><td class="label">Ctrl+Q</td><td>Quit the editor and return to the shell</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sidebar-col">
+
+    <div class="panel sidebar">
+      <div class="panel-head">Project Info</div>
+      <div class="panel-body">
+        <div class="stat-row"><span class="stat-label">Latest version</span><span class="stat-val">0.4.0</span></div>
+        <div class="stat-row"><span class="stat-label">Architecture</span><span class="stat-val">x86 (32-bit)</span></div>
+        <div class="stat-row"><span class="stat-label">Bootloader</span><span class="stat-val">GRUB / Multiboot2</span></div>
+        <div class="stat-row"><span class="stat-label">License</span><span class="stat-val">See LICENSE</span></div>
+        <div class="stat-row"><span class="stat-label">Written in</span><span class="stat-val">C and Assembly</span></div>
+        <div class="badge-row">
+          <span class="badge">x86</span>
+          <span class="badge">bare-metal</span>
+          <span class="badge">QEMU</span>
+          <span class="badge">AI-built</span>
+          <span class="badge">hobby-os</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel sidebar">
+      <div class="panel-head">Quick Links</div>
+      <div class="panel-body">
+        <ul class="link-list">
+          <li><a href="/about"><span class="bullet">&raquo;</span>About this project</a></li>
+          <li><a href="/features"><span class="bullet">&raquo;</span>Feature list</a></li>
+          <li><a href="/commands" class="current"><span class="bullet">&raquo;</span>Command reference</a></li>
+          <li><a href="/build"><span class="bullet">&raquo;</span>Build instructions</a></li>
+          <li><a href="/changelog"><span class="bullet">&raquo;</span>Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="page" style="margin-top: -8px;">
+  <div class="main-col">
+    <div class="page-nav">
+      <a href="/features">&laquo; Previous: Features</a>
+      <a class="next" href="/build">Next: Build &raquo;</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>Claudimon, an experimental kernel project.</span>
+    <span><a href="/build">Build instructions</a> &middot; <a href="/commands">Command reference</a> &middot; <a href="/changelog">Changelog</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
