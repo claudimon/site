@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/src/index.html" },
+    { "source": "/about", "destination": "/src/about/index.html" },
+    { "source": "/features", "destination": "/src/features/index.html" },
+    { "source": "/commands", "destination": "/src/commands/index.html" },
+    { "source": "/build", "destination": "/src/build/index.html" },
+    { "source": "/changelog", "destination": "/src/changelog/index.html" }
+  ]
+}
