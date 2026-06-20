@@ -76,7 +76,7 @@
         <table class="info-table">
           <tr>
             <td class="label">1. Get the source</td>
-            <td>The kernel source lives under <code>mykernel/</code>: boot code, kernel sources, headers, and the GRUB config.</td>
+            <td>The kernel source lives under <code>claudimon-main/</code>: boot code, kernel sources, headers, and the GRUB config.</td>
           </tr>
           <tr>
             <td class="label">2. Build it</td>
@@ -84,7 +84,7 @@
               Assembles the boot stub, compiles every kernel source, links it into a flat
               binary, wraps it in a bootable ISO with GRUB, and creates a 16MB virtual hard
               disk for the filesystem.
-              <pre class="shell-block"><span class="prompt">$</span> cd mykernel
+              <pre class="shell-block"><span class="prompt">$</span> cd claudimon-main
 <span class="prompt">$</span> make</pre>
             </td>
           </tr>
