@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog - Claudimon</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <span>Claudimon Project</span>
+    <span><a href="../build/index.html">Download</a> | <a href="../commands/index.html">Documentation</a> | <a href="../about/index.html">About</a></span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-block">
+      <a href="../index.html">
+        <div class="logo-icon" aria-hidden="true">C</div>
+        <div class="logo-text">
+          <h1>Claudimon</h1>
+          <div class="tagline">An experimental operating system kernel</div>
+        </div>
+      </a>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about/index.html">About</a></li>
+        <li><a href="../features/index.html">Features</a></li>
+        <li><a href="../commands/index.html">Commands</a></li>
+        <li><a href="../build/index.html">Build</a></li>
+        <li><a href="index.html" class="current">Changelog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <a href="../index.html">Home</a><span class="sep">&raquo;</span><span class="current">Changelog</span>
+</div>
+
+<div class="page">
+
+  <div class="main-col">
+
+    <div class="panel">
+      <div class="panel-head">Changelog</div>
+      <div class="panel-body">
+
+        <div class="changelog-version">
+          <div class="changelog-version-head"><span>Editor, layouts and power</span><span class="vnum">v0.4</span></div>
+          <div class="changelog-version-body">
+            <ul>
+              <li>Full screen text editor with save and quit shortcuts</li>
+              <li>Seven selectable keyboard layouts</li>
+              <li>Command history with up and down recall</li>
+              <li><code>calc</code>, <code>logo</code>, and ASCII boot art</li>
+              <li><code>shutdown</code> and <code>reboot</code> via QEMU power ports</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="changelog-version">
+          <div class="changelog-version-head"><span>Disk persistence</span><span class="vnum">v0.3</span></div>
+          <div class="changelog-version-body">
+            <ul>
+              <li>Hand written ATA PIO driver (primary, master)</li>
+              <li>CMFS: a custom on-disk filesystem format</li>
+              <li>Files now survive a reboot</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="changelog-version">
+          <div class="changelog-version-head"><span>A real shell</span><span class="vnum">v0.2</span></div>
+          <div class="changelog-version-body">
+            <ul>
+              <li>In-memory filesystem: <code>ls</code>, <code>cd</code>, <code>mkdir</code>, <code>cat</code>, <code>touch</code></li>
+              <li>PC speaker driver and sound commands</li>
+              <li>Five colour themes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="changelog-version">
+          <div class="changelog-version-head"><span>First boot</span><span class="vnum">v0.1</span></div>
+          <div class="changelog-version-body">
+            <ul>
+              <li>Multiboot2 and GRUB boot chain</li>
+              <li>VGA text mode driver</li>
+              <li>Polling PS/2 keyboard input</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sidebar-col">
+
+    <div class="panel sidebar">
+      <div class="panel-head">Project Info</div>
+      <div class="panel-body">
+        <div class="stat-row"><span class="stat-label">Latest version</span><span class="stat-val">0.4.0</span></div>
+        <div class="stat-row"><span class="stat-label">Architecture</span><span class="stat-val">x86 (32-bit)</span></div>
+        <div class="stat-row"><span class="stat-label">Bootloader</span><span class="stat-val">GRUB / Multiboot2</span></div>
+        <div class="stat-row"><span class="stat-label">License</span><span class="stat-val">See LICENSE</span></div>
+        <div class="stat-row"><span class="stat-label">Written in</span><span class="stat-val">C and Assembly</span></div>
+        <div class="badge-row">
+          <span class="badge">x86</span>
+          <span class="badge">bare-metal</span>
+          <span class="badge">QEMU</span>
+          <span class="badge">AI-built</span>
+          <span class="badge">hobby-os</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel sidebar">
+      <div class="panel-head">Quick Links</div>
+      <div class="panel-body">
+        <ul class="link-list">
+          <li><a href="../about/index.html"><span class="bullet">&raquo;</span>About this project</a></li>
+          <li><a href="../features/index.html"><span class="bullet">&raquo;</span>Feature list</a></li>
+          <li><a href="../commands/index.html"><span class="bullet">&raquo;</span>Command reference</a></li>
+          <li><a href="../build/index.html"><span class="bullet">&raquo;</span>Build instructions</a></li>
+          <li><a href="index.html" class="current"><span class="bullet">&raquo;</span>Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="page" style="margin-top: -8px;">
+  <div class="main-col">
+    <div class="page-nav">
+      <a href="../build/index.html">&laquo; Previous: Build</a>
+      <span></span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>Claudimon, an experimental kernel project.</span>
+    <span><a href="../build/index.html">Build instructions</a> &middot; <a href="../commands/index.html">Command reference</a> &middot; <a href="index.html">Changelog</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
